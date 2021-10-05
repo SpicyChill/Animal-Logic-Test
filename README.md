@@ -15,6 +15,8 @@ The aim of this command convert python dictionary to json and save into a json f
 
 How to run:
 Type the following commands in your terminal each time choose one command
-python cml.py dict_to_html
-python cml.py dict_to_xml
-python cml.py save_json_file
+python cml.py tohtml
+python cml.py toxml
+python cml.py savejson
+
+or trigger ci test (test.yml)
