@@ -1,0 +1,40 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install click
+        pip install dicttoxm
+        pip install PyYAML
+        pip install simplejson
+        pip install pyparsing
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: execute cml.py tohtml command
+      run: |
+        python cml.py tohtml
+    - name: execute cml.py toxml command
+      run: |
+        python cml.py toxml
+    - name: execute cml.py savejson command
+      run: |
+        python cml.py savejson
