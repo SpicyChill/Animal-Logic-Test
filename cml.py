@@ -10,7 +10,7 @@ from dicttoxml import dicttoxml
 
 
 # The aim of this function parse and converts a yaml object to python dictionary(deserializing YAML to Python)
-with open(r'test.yaml') as f:
+with open(r'sampleData.yaml') as f:
     data = yaml.load(f, SafeLoader)
 
 @click.group()
